@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𝑺𝒶𝒾 ⚝ | Portfolio</title>
+
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<style>
+:root{
+  --bg:#0a0603;
+  --card:rgba(0,0,0,0.45);
+  --glass:rgba(255,153,51,0.08);
+  --accent:#ff9f1c;
+  --accent-soft:#ffd166;
+  --text:#f5f5f5;
+  --muted:#c7b8a0;
+  --border:rgba(255,159,28,0.35);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  height:100%;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  background:radial-gradient(circle at top,#1a0d05,#000);
+  color:var(--text);
+}
+
+.container{
+  min-height:100%;
+  display:flex;
+  justify-content:center;
+  padding:40px 12px;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:var(--card);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-radius:22px;
+  padding:28px 20px;
+  border:1px solid var(--border);
+  box-shadow:0 0 40px rgba(255,159,28,0.15);
+}
+
+.profile{
+  display:block;
+  margin:0 auto 18px;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--accent);
+  box-shadow:0 0 35px rgba(255,159,28,.7);
+}
+
+h1{
+  text-align:center;
+  font-size:2rem;
+  color:var(--accent);
+}
+
+.subtitle{
+  text-align:center;
+  font-size:.9rem;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.section{
+  margin-top:22px;
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  padding:16px 14px;
+  border:1px solid rgba(255,159,28,.25);
+}
+
+.section h2{
+  font-size:1rem;
+  color:var(--accent-soft);
+  margin-bottom:10px;
+}
+
+p{
+  font-size:.92rem;
+  line-height:1.6;
+}
+
+ul{
+  list-style:none;
+  font-size:.92rem;
+  line-height:1.8;
+}
+
+ul li::before{
+  content:"› ";
+  color:var(--accent);
+  font-weight:bold;
+}
+
+/* CONTACT BUTTON */
+.contact-wrap{
+  text-align:center;
+  margin-top:24px;
+}
+
+.contact-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 18px;
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--accent);
+  text-decoration:none;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,159,28,.08);
+  backdrop-filter:blur(8px);
+  transition:.3s ease;
+}
+
+.contact-btn:hover{
+  background:rgba(255,159,28,.18);
+  box-shadow:0 0 18px rgba(255,159,28,.6);
+  transform:translateY(-1px);
+}
+
+.material-symbols-outlined{
+  font-size:18px;
+}
+
+.footer{
+  margin-top:26px;
+  text-align:center;
+  font-size:.8rem;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <!-- Profile -->
+    <img src="https://cdn.myrx.pw/uploads/2026/02/06/d49a0684ce0545339cb5fb5fa5ab7d2c.jpg"
+         alt="𝑺𝒶𝒾 ⚝"
+         class="profile">
+
+    <h1>𝑺𝒶𝒾 ⚝</h1>
+    <div class="subtitle">Aspiring Developer • Bot & API Integration</div>
+
+    <!-- About -->
+    <div class="section">
+      <h2>About</h2>
+      <p>
+        I am a technology learner with a strong interest in bot development
+        and API integration. Currently focused on building practical projects
+        and strengthening core development skills.
+      </p>
+    </div>
+
+    <!-- Details -->
+    <div class="section">
+      <h2>Details</h2>
+      <ul>
+        <li>Country: India</li>
+        <li>Date of Birth: 02 August 2007</li>
+        <li>Age: <span id="age"></span></li>
+        <li>Qualification: Currently Building</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <h2>Skills</h2>
+      <ul id="skills"></ul>
+    </div>
+
+    <!-- Contact Button -->
+    <div class="contact-wrap">
+      <a href="https://t.me/Saiiii68_bot" target="_blank" class="contact-btn">
+        <span class="material-symbols-outlined">chat</span>
+        Contact
+      </a>
+    </div>
+
+    <div class="footer">
+      © 2026 𝑺𝒶𝒾 ⚝ • Learning • Building • Growing
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* Age */
+function ageCalc(){
+  const dob = new Date(2007,7,2);
+  const now = new Date();
+  let y = now.getFullYear() - dob.getFullYear();
+  let m = now.getMonth() - dob.getMonth();
+  let d = now.getDate() - dob.getDate();
+  if(d<0){m--;d+=30}
+  if(m<0){y--;m+=12}
+  document.getElementById("age").innerText = `${y} years ${m} months`;
+}
+ageCalc();
+
+/* Typed skills */
+new Typed("#skills",{
+  strings:[
+    "<li>HTML & CSS</li>",
+    "<li>JavaScript (Basics)</li>",
+    "<li>Telegram Bot Development</li>",
+    "<li>API Integration</li>",
+    "<li>Python (Learning)</li>"
+  ],
+  typeSpeed:40,
+  backSpeed:20,
+  loop:true,
+  contentType:"html"
+});
+</script>
+
+</body>
+</html>
